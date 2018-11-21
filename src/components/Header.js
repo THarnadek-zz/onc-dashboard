@@ -7,7 +7,7 @@ class Header extends Component {
                 <div className="ui container">
                     <h1>ONC Dashboard Prototype</h1>
                     <div className="ui secondary menu">
-                        <a className="ui active item">
+                        <a href="/" className="ui active item">
                             Dashboard
                         </a>
                     </div>
