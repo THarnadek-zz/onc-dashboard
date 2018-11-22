@@ -3,8 +3,8 @@ import logo from './onclogo_135x135_1.png';
 
 import Container from './components/Container';
 import Header from './components/Header';
-import './App.css';
-import './semantic/dist/semantic.min.css';
+import './css/App.css';
+import './css/semantic.min.css';
 
 class App extends Component {
   render() {
