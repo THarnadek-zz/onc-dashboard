@@ -3,7 +3,7 @@ import LineChart from './LineChart'
 import axios from 'axios'
 import moment from 'moment' 
 import { Line } from 'react-chartjs-2';
-
+import Image from './Image'
 
 const colors = [
     '#2d3142',
@@ -30,13 +30,14 @@ class Container extends Component {
         axios.get('https://data.oceannetworks.ca/api/scalardata',{
             params: {
                 method: 'getByLocation',
-                token: '079f20e6-4fc3-41ab-832e-a42943f59186',
+                token: '43b478f3-8f59-41e8-a24b-fa52eb3ad01f',
                 locationCode: 'CRSS',
                 deviceCategoryCode: 'METSTN',
                 outputFormat: 'Object',
-                dateFrom: moment().subtract(90, 'minutes').toISOString(),
+                dateFrom: moment().subtract(30, 'minutes').toISOString(),
                 rowLimit: 100
-            }
+            },
+            headers: { 'content-type': 'application/x-www-form-urlencoded' }
         })
             .then(response => {
                 console.log(response)
@@ -48,6 +49,7 @@ class Container extends Component {
             .catch(error => {
                 console.log(error)
                 this.setState({
+                    loading: false,
                     error: true
                 })
             })
@@ -55,14 +57,21 @@ class Container extends Component {
     render () {
         return (
             <div className="ui container">
-                {this.state.loading && 
+                {this.state.error &&
                     <div>
-                        <div className="ui active text loader">
-                            Loading your dashboard...
-                        </div>
-                    </div> 
+                        Sorry, couldn't access the Oceans 2.0 API.
+                    </div>
                 }
                 <div className="ui padded grid">
+                    <Image/>
+                    {this.state.loading && 
+                        <div className="ui eight wide column">
+                            Loading...
+                            <div className="ui inline text loader">
+                                Loading your dashboard...
+                            </div>
+                        </div> 
+                    }
                     {Object.keys(this.state.data).map((index) => {
                         return <Chart {...this.state.data[index]} key={this.state.data[index].sensorCode}/>
                     })}
