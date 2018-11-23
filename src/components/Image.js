@@ -13,7 +13,7 @@ class Image extends Component {
                 token: '43b478f3-8f59-41e8-a24b-fa52eb3ad01f',
                 locationCode: 'CRSS',
                 deviceCategoryCode: 'VIDEOCAM',
-                dateFrom: moment().subtract(30, 'minutes').toISOString(),
+                dateFrom: moment().subtract(60, 'minutes').toISOString(),
                 rowLimit: 25
             },
             headers: { 'content-type': 'application/x-www-form-urlencoded' }
