@@ -54,7 +54,7 @@ class Container extends Component {
     }
     render () {
         return (
-            <div className="ui container" >
+            <div className="ui container">
                 {this.state.loading && 
                     <div>
                         <div className="ui active text loader">
