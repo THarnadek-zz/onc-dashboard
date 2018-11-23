@@ -9,7 +9,7 @@ import './css/semantic.min.css';
 class App extends Component {
   render() {
     return (
-      <div className="root" style={{backgroundColor: "rgb(77, 179, 208)", height: "100vh"}}>
+      <div className="root" >
         <Header logo={logo} />
         <Container className="semantic"/>
       </div>
