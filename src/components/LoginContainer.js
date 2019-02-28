@@ -41,6 +41,9 @@ class LoginContainer extends Component {
                             It is not developed or officially endorsed by Ocean Networks Canada and any likeness is purely for representational
                             purposes.
                         </p>
+                        <p>
+                            This site uses a CORS redirect via <a href="https://cors-anywhere.herokuapp.com/">https://cors-anywhere.herokuapp.com/</a>. 
+                        </p>
                     </div>
                 </div>
             </div>
