@@ -7,7 +7,7 @@ class Image extends Component {
         imageSource: ''
     }
     componentDidMount(){
-        axios.get('https://data.oceannetworks.ca/api/archivefiles',{
+        axios.get('https://cors-anywhere.herokuapp.com/https://data.oceannetworks.ca/api/archivefiles',{
             params: {
                 method: 'getListByLocation',
                 token: '43b478f3-8f59-41e8-a24b-fa52eb3ad01f',

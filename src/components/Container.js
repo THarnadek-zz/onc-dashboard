@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LineChart from './LineChart'
+//import LineChart from './LineChart'
 import axios from 'axios'
 import moment from 'moment' 
 import { Line } from 'react-chartjs-2';
@@ -27,7 +27,8 @@ class Container extends Component {
         error: false
     }
     componentDidMount(){
-        axios.get('https://data.oceannetworks.ca/api/scalardata',{
+//        axios.get('http://data.oceannetworks.ca/api/',{
+        axios.get('https://cors-anywhere.herokuapp.com/https://data.oceannetworks.ca/api/scalardata',{
             params: {
                 method: 'getByLocation',
                 token: '43b478f3-8f59-41e8-a24b-fa52eb3ad01f',
@@ -37,7 +38,8 @@ class Container extends Component {
                 dateFrom: moment().subtract(30, 'minutes').toISOString(),
                 rowLimit: 100
             },
-            headers: { 'content-type': 'application/x-www-form-urlencoded' }
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+            data: {}
         })
             .then(response => {
                 console.log(response)
